@@ -84,12 +84,12 @@ public class WebSocketServer {
         if (!StringUtils.isEmpty(message)) {
             try {
                 JSONObject jsonObject = JSON.parseObject(message);
-                jsonObject.put("fromUserId", this.userId);
-                String toUserId = jsonObject.getString("toUserId");
-                if (!StringUtils.isEmpty(toUserId) && webSocketMap.containsKey(toUserId)) {
-                    webSocketMap.get(toUserId).sendMessage(jsonObject.toJSONString());
+                jsonObject.put("fromUser", this.userId);
+                String toUser = jsonObject.getString("toUser");
+                if (!StringUtils.isEmpty(toUser) && webSocketMap.containsKey(toUser)) {
+                    webSocketMap.get(toUser).sendMessage(jsonObject.toJSONString());
                 } else {
-                    log.error("请求的 userId:" + toUserId + "不在该服务器上");
+                    log.error("请求的 userId:" + toUser + "不在该服务器上");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
