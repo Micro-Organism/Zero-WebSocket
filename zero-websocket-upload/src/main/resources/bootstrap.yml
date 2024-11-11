@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: zero-websocket-upload
+    profiles:
+        active: dev
+server:
+    port: 8080
